@@ -1,0 +1,7 @@
+from .attempt_repository import AttemptRepository
+from .evaluation_repository import EvaluationRepository
+from .module_repository import ModuleRepository
+from .program_module_repository import ProgramModuleRepository
+from .program_repository import ProgramRepository
+from .enrollment_repository import EnrollmentRepository
+from .student_repository import StudentRepository

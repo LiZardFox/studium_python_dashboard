@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block header %}
+{% endblock %} {% block content %}
+<div class="container">
+  <div class="sidebar">
+    <div class="average-grade">
+    </div>
+  </div>
+  <div class="main-content">
+    
+  </div>
+</div>
+<script>
+function toggleSemesterContent(semesterElement) {
+  const modules = semesterElement.querySelector('.modules');
+  if (modules.style.display === 'none') {
+    modules.style.display = 'block';
+  } else {
+    modules.style.display = 'none';
+  }
+}
+</script>
+{% endblock %}

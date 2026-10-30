@@ -1,0 +1,154 @@
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.header {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 2px solid #0056b3;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar li {
+  margin-left: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.content {
+  width: 80%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.semester {
+  cursor: pointer;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.modules {
+  margin-top: 10px;
+}
+
+.module-boxes {
+    display: flex;
+    flex-direction: row;
+}
+
+.module-boxes div {
+  margin-left: 10px;
+}
+
+.average-grade {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.grade-box {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid;
+  color: white;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.grade-red {
+  background-color: red;
+  border-color: red;
+}
+
+.grade-yellow {
+  background-color: yellow;
+  border-color: yellow;
+  color: black;
+}
+
+.grade-green {
+  background-color: green;
+  border-color: green;
+}
+
+.module-box {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ddd;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  appearance: none; /* Remove default arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="7"><path d="M5 7L10 0H0z"/></svg>'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 8px 6px;
+  margin-bottom: 10px;
+}
+
+select:focus {
+  border-color: #007bff;
+  outline: none;
+}

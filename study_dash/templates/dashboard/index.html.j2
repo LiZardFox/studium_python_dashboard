@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block header %}
+<div class="header">
+  <h1>{% block title %} {{ overview.enrollment.program.name }} {% endblock %}</h1>
+  <p>Start Date: {{ overview.enrollment.enrollment.start_date.strftime('%d %B, %Y') }}</p>
+  <p>End Date: {{ overview.enrollment.enrollment.end_date.strftime('%d %B, %Y') }}</p>
+  {% if overview.enrollment.enrollment.target_end_date %}
+    <p>Target End Date: {{ overview.enrollment.enrollment.target_end_date.strftime('%d %B, %Y') }}</p>
+  {% endif %}
+  {% if overview.enrollment.enrollment.target_grade %}
+    <p>Target Grade: {{ overview.enrollment.enrollment.target_grade }}</p>
+  {% endif %}
+</div>
+<form method="get" style="margin-top: 20px;">
+  <select name="enrollment_id" onchange="this.form.submit()">
+    {% for enrollment in overview.enrollments %}
+    <option value="{{ enrollment.enrollment.id }}" {% if enrollment_id == enrollment.enrollment.id %} selected="selected" {% endif %}>{{ enrollment.program.name }}</option>
+    {% endfor %}
+  </select>
+</form>
+{% endblock %} {% block content %}
+<div class="container">
+  <div class="sidebar">
+    <div class="average-grade">
+      <div class="circle {{ overview.average_grade.color }}">
+        <p>{{ overview.average_grade.grade }}</p>
+      </div>
+    </div>
+    {% for grade in overview.grades %}
+    <div class="grade-box {{ grade.color }}">
+      <p>Grade: {{ grade.grade }}</p>
+      <p>Module: {{ grade.module.name }}</p>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="main-content">
+    <p>Nächstes Modul spätenstens am {{ overview.next_modul_end.strftime('%d %B, %Y') }} abschließen</p>
+
+    {% for semester in overview.semesters %}
+    <div class="semester" onclick="toggleSemesterContent(this)">
+      <h2>Semester {{ semester.semester_nr }}</h2>
+      <div class="modules">
+      <div class="module-boxes">
+        {% for module in semester.modules %}
+        <div class="module-box">
+          <p>Module: {{ module.module.name }}</p>
+          <p>Grade: {{ module.grade if module.grade is not none else 'N/A' }}</p>
+        </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<script>
+function toggleSemesterContent(semesterElement) {
+  const modules = semesterElement.querySelector('.modules');
+  if (modules.style.display === 'none') {
+    modules.style.display = 'block';
+  } else {
+    modules.style.display = 'none';
+  }
+}
+</script>
+{% endblock %}
